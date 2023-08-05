@@ -107,13 +107,13 @@ export class CoreModule { }
 ```typescript
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EnhancedFormComponent } from "./enhanced-form/enhanced-form.component";
+import { FirstComponent } from "./first/first.component";
 import { BaseRoutingModule } from "./base-routing.module";
 import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
   declarations: [
-    EnhancedFormComponent
+    FirstComponent
   ],
   imports: [
     CommonModule,
@@ -129,12 +129,12 @@ export class BaseModule { }
 ```typescript
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
-import { EnhancedFormComponent } from "./enhanced-form/enhanced-form.component";
+import { EnhancedFormComponent } from "./first/first.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: EnhancedFormComponent
+    component: FirstComponent
   },
 ]
 
@@ -145,7 +145,12 @@ const routes: Routes = [
 export class BaseRoutingModule { }
 
 ```
-7. On `shared.module.ts` the code should look like this:
+7. Install nebular
+```shell
+ng add @nebular/theme
+```
+8. Use default theme, enable customizable scss themes and set up browser animations
+9. On `shared.module.ts` the code should look like this:
 ```typescript
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -176,7 +181,7 @@ import { NbEvaIconsModule } from "@nebular/eva-icons";
 export class SharedModule { }
 
 ```
-8. If you use nebular, then `nebular.module.ts` should look like this:
+10. If you use nebular, then `nebular.module.ts` should look like this:
 ```typescript
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -199,11 +204,11 @@ const NEBULAR_MODULES = [
 export class NebularModule { }
 
 ```
-9. `app.component.html` should look like this:
+11. `app.component.html` should look like this:
 ```html
 <router-outlet></router-outlet>
 ```
-10. `index.html` should look like this:
+12. `index.html` should look like this:
 ```html
 <!doctype html>
 <html lang="en">
